@@ -129,7 +129,7 @@ window.onload = () => {
 	});
 
 	const threshold = 30;
-	const touchableElement = document.getElementsByTagName("body");
+	const touchableElement = document.getElementsByTagName("body")[0];
 
 	touchableElement.addEventListener(
 		"touchstart",
