@@ -46,19 +46,19 @@ window.onload = () => {
 
 		context.fillStyle = "red";
 		context.fillRect(
-			apple_x_coordinate * cell_width,
-			apple_y_coordinate * cell_height,
-			cell_width,
-			cell_height
+			apple_x_coordinate * cell_width + cell_gap,
+			apple_y_coordinate * cell_height + cell_gap,
+			cell_width - cell_gap,
+			cell_height - cell_gap
 		);
 
 		context.fillStyle = "lime";
 		for (let i = 0; i < snake_array.length; i++) {
 			context.fillRect(
-				snake_array[i].x * cell_width,
-				snake_array[i].y * cell_height,
-				cell_width,
-				cell_height
+				snake_array[i].x * cell_width + cell_gap,
+				snake_array[i].y * cell_height + cell_gap,
+				cell_width - cell_gap,
+				cell_height - cell_gap
 			);
 
 			if (
@@ -87,10 +87,10 @@ window.onload = () => {
 		}
 
 		context.fillRect(
-			x_coordinate * cell_width,
-			y_coordinate * cell_height,
-			cell_width,
-			cell_height
+			x_coordinate * cell_width + cell_gap,
+			y_coordinate * cell_height + cell_gap,
+			cell_width - cell_gap,
+			cell_height - cell_gap
 		);
 
 		score_span.innerText = `Score: ${snake_length}`;
