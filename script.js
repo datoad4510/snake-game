@@ -155,34 +155,36 @@ window.onload = () => {
 		const yDiff = touchstartY - touchendY;
 
 		if (xDiff < -threshold) {
-			// console.log("Swiped Left");
-			if (x_velocity === 0) {
-				x_velocity = -1;
-				y_velocity = 0;
-			}
-		}
-
-		if (xDiff > threshold) {
-			// console.log("Swiped Right");
+			// console.log("Swiped right");
 			if (x_velocity === 0) {
 				x_velocity = 1;
 				y_velocity = 0;
 			}
 		}
 
-		if (yDiff < -threshold) {
-			// console.log("Swiped Up");
-			if (y_velocity === 0) {
-				x_velocity = 0;
-				y_velocity = -1;
+		if (xDiff > threshold) {
+			// console.log("Swiped left");
+
+			if (x_velocity === 0) {
+				x_velocity = -1;
+				y_velocity = 0;
 			}
 		}
 
-		if (yDiff > threshold) {
+		if (yDiff < -threshold) {
 			// console.log("Swiped Down");
 			if (y_velocity === 0) {
 				x_velocity = 0;
 				y_velocity = 1;
+			}
+		}
+
+		if (yDiff > threshold) {
+			// console.log("Swiped Up");
+
+			if (y_velocity === 0) {
+				x_velocity = 0;
+				y_velocity = -1;
 			}
 		}
 
