@@ -128,7 +128,7 @@ window.onload = () => {
 		}
 	});
 
-	const threshold = 30;
+	const threshold = 0;
 	const touchableElement = document.getElementsByTagName("body")[0];
 
 	touchableElement.addEventListener(
@@ -156,6 +156,7 @@ window.onload = () => {
 
 		if (xDiff < -threshold) {
 			// console.log("Swiped Left");
+			alert("Swiped Left");
 			if (x_velocity === 0) {
 				x_velocity = -1;
 				y_velocity = 0;
@@ -164,6 +165,7 @@ window.onload = () => {
 
 		if (xDiff > threshold) {
 			// console.log("Swiped Right");
+			alert("Swiped Right");
 			if (x_velocity === 0) {
 				x_velocity = 1;
 				y_velocity = 0;
@@ -172,6 +174,7 @@ window.onload = () => {
 
 		if (yDiff < -threshold) {
 			// console.log("Swiped Up");
+			alert("Swiped Up");
 			if (y_velocity === 0) {
 				x_velocity = 0;
 				y_velocity = -1;
@@ -180,6 +183,7 @@ window.onload = () => {
 
 		if (yDiff > threshold) {
 			// console.log("Swiped Down");
+			alert("Swiped Down");
 			if (y_velocity === 0) {
 				x_velocity = 0;
 				y_velocity = 1;
