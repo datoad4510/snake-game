@@ -128,50 +128,50 @@ window.onload = () => {
 		}
 	});
 
-	let touchstartX = 0;
-	let touchendX = 0;
-	let touchstartY = 0;
-	let touchendY = 0;
+	const threshold = 30;
+	const touchableElement = document.getElementsByTagName("body");
+
+	touchableElement.addEventListener(
+		"touchstart",
+		function (event) {
+			touchstartX = event.changedTouches[0].screenX;
+			touchstartY = event.changedTouches[0].screenY;
+		},
+		false
+	);
+
+	touchableElement.addEventListener(
+		"touchend",
+		function (event) {
+			touchendX = event.changedTouches[0].screenX;
+			touchendY = event.changedTouches[0].screenY;
+			handleGesture();
+		},
+		false
+	);
 
 	function handleGesture() {
-		if (touchendX < touchstartX) {
-			alert("swiped left!");
-			if (x_velocity === 0) {
-				x_velocity = -1;
-				y_velocity = 0;
-			}
+		const xDiff = touchstartX - touchendX;
+		const yDiff = touchstartY - touchendY;
+
+		if (xDiff < -threshold) {
+			console.log("Swiped Left");
 		}
-		if (touchendX > touchstartX) {
-			alert("swiped right!");
-			if (x_velocity === 0) {
-				x_velocity = 1;
-				y_velocity = 0;
-			}
+
+		if (xDiff > threshold) {
+			console.log("Swiped Right");
 		}
-		if (touchendY < touchstartY) {
-			alert("swiped up!");
-			if (y_velocity === 0) {
-				x_velocity = 0;
-				y_velocity = -1;
-			}
+
+		if (yDiff < -threshold) {
+			console.log("Swiped Up");
 		}
-		if (touchendY > touchstartY) {
-			alert("swiped down!");
-			if (y_velocity === 0) {
-				x_velocity = 0;
-				y_velocity = 1;
-			}
+
+		if (yDiff > threshold) {
+			console.log("Swiped Down");
 		}
+
+		// if (touchendY === touchstartY) {
+		// 	console.log("Tap");
+		// }
 	}
-
-	window.addEventListener("touchstart", (e) => {
-		touchstartX = e.changedTouches[0].screenX;
-		touchstartY = e.changedTouches[0].screenY;
-	});
-
-	window.addEventListener("touchend", (e) => {
-		touchendX = e.changedTouches[0].screenX;
-		touchendY = e.changedTouches[0].screenY;
-		handleGesture();
-	});
 };
