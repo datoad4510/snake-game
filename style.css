@@ -2,6 +2,9 @@ html,
 body {
 	overscroll-behavior-y: contain;
 	background-color: black;
+
+	overflow: hidden;
+	position: fixed;
 }
 
 @font-face {

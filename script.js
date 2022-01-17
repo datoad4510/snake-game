@@ -11,10 +11,6 @@ window.onload = () => {
 			borderWidth) /
 		1.5;
 
-	console.log(Math.min(window.innerHeight, window.innerWidth));
-	console.log(window.innerWidth, window.innerHeight);
-	console.log(canvas.width, canvas.height);
-
 	const options = {
 		canvas,
 		score_span: document.getElementsByClassName("score")[0],
