@@ -4,7 +4,8 @@ body {
 	background-color: black;
 
 	overflow: hidden;
-	position: fixed;
+	/* position: fixed; */
+
 }
 
 @font-face {
@@ -27,11 +28,11 @@ body {
 }
 
 .game-container {
-	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	margin-top: 50px;
 }
 
 .score {
