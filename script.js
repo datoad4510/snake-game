@@ -9,20 +9,35 @@ window.onload = () => {
 
 	const score_span = document.getElementsByClassName("score")[0];
 
-	let x_velocity = 1;
-	let y_velocity = 0;
+	const random_initial_velocity_arr = [
+		{ x_velocity: -1, y_velocity: 0 },
+		{ x_velocity: 1, y_velocity: 0 },
+		{ x_velocity: 0, y_velocity: -1 },
+		{ x_velocity: 0, y_velocity: 1 },
+	];
+	const random_initial_velocity =
+		random_initial_velocity_arr[
+			Math.floor(Math.random() * random_initial_velocity_arr.length)
+		];
 
-	let x_coordinate = (y_coordinate = 0);
-	let apple_x_coordinate = (apple_y_coordinate = 15);
+	let { x_velocity, y_velocity } = random_initial_velocity;
 
+	
 	let snake_array = [];
 	let snake_length = 0;
-
+	
 	const rows = (columns = 20);
 	const cell_gap = 1;
 	const cell_width = canvas.width / columns;
 	const cell_height = canvas.height / rows;
+	
+	let x_coordinate = Math.floor(Math.random() * rows);
+	let y_coordinate = Math.floor(Math.random() * columns);
 
+	
+	let apple_x_coordinate = Math.floor(Math.random() * rows);
+	let apple_y_coordinate = Math.floor(Math.random() * columns);
+	
 	function render() {
 		x_coordinate += x_velocity;
 		y_coordinate += y_velocity;
