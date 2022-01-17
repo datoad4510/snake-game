@@ -1,4 +1,33 @@
 html,
 body {
 	overscroll-behavior-y: contain;
+	background-color: black;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.snake-game {
+	border-color: lime;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.game-container {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.score {
+	color: lime;
+	font-size: 2rem;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 10px;
 }
