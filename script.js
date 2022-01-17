@@ -151,10 +151,18 @@ window.onload = () => {
 	);
 
 	function handleGesture() {
-		const xDiff = touchstartX - touchendX;
-		const yDiff = touchstartY - touchendY;
+		const xDiff = touchendX - touchstartX;
+		const yDiff = touchendY - touchstartY;
 
 		if (xDiff < -threshold) {
+			// console.log("Swiped left");
+			if (x_velocity === 0) {
+				x_velocity = -1;
+				y_velocity = 0;
+			}
+		}
+
+		if (xDiff > threshold) {
 			// console.log("Swiped right");
 			if (x_velocity === 0) {
 				x_velocity = 1;
@@ -162,29 +170,19 @@ window.onload = () => {
 			}
 		}
 
-		if (xDiff > threshold) {
-			// console.log("Swiped left");
-
-			if (x_velocity === 0) {
-				x_velocity = -1;
-				y_velocity = 0;
-			}
-		}
-
 		if (yDiff < -threshold) {
-			// console.log("Swiped Down");
+			// console.log("Swiped Up");
 			if (y_velocity === 0) {
 				x_velocity = 0;
-				y_velocity = 1;
+				y_velocity = -1;
 			}
 		}
 
 		if (yDiff > threshold) {
-			// console.log("Swiped Up");
-
+			// console.log("Swiped Down");
 			if (y_velocity === 0) {
 				x_velocity = 0;
-				y_velocity = -1;
+				y_velocity = 1;
 			}
 		}
 
