@@ -139,12 +139,9 @@ class Game {
 	}
 
 	render() {
-		this.x_coordinate += this.x_velocity;
-		this.y_coordinate += this.y_velocity;
-
-		this.handleBoundaries();
 		this.fillBackground();
 		this.drawApple();
+		this.handleBoundaries();
 		this.drawSnake();
 		this.eatApple();
 
@@ -156,14 +153,17 @@ class Game {
 			this.snake_array.shift();
 		}
 
+		// draw head
 		this.context.fillRect(
 			this.x_coordinate * this.cell_width + this.cell_gap,
 			this.y_coordinate * this.cell_height + this.cell_gap,
 			this.cell_width - this.cell_gap,
 			this.cell_height - this.cell_gap
 		);
-
 		this.handleScore();
+
+		this.x_coordinate += this.x_velocity;
+		this.y_coordinate += this.y_velocity;
 	}
 
 	keyHandler(event) {
@@ -184,7 +184,7 @@ class Game {
 			case "ArrowDown":
 				if (this.y_velocity === 0) {
 					this.x_velocity = 0;
-					y_velocity = 1;
+					this.y_velocity = 1;
 				}
 				break;
 			case "ArrowLeft":
