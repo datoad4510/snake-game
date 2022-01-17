@@ -5,7 +5,7 @@ window.onload = () => {
 	const canvas = document.getElementsByClassName("snake-game")[0];
 
 	canvas.width = canvas.height =
-		Math.min(window.innerHeight, window.innerHeight) / 1.5;
+		Math.min(window.innerHeight, window.innerWidth) / 1.5;
 
 	const options = {
 		canvas,
