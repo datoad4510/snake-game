@@ -20,6 +20,7 @@ body {
 	border-color: lime;
 	border-width: 1px;
 	border-style: solid;
+	box-shadow: 0 0 2px lime;
 }
 
 .game-container {
