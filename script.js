@@ -18,6 +18,5 @@ window.onload = () => {
 
 	const game = new SnakeGame(options);
 
-
 	game.start();
 };
